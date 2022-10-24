@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
+import css from './FriendListItem.module.css';
+import { getRandomHexColor } from 'index';
 
 export default function FriendListItem({ avatar, name, isOnline }) {
-  return <li className="item">
-    {isOnline === true ? <span className="status green"></span> : <span className="status red"></span>}
-  <img className="avatar" src={avatar} alt="User avatar" width="48" />
-    <p className="name">{name}</p>
+  return <li className={css.item}>
+    {isOnline === true ? <span className={css.statusGreen}></span> : <span className={css.statusRed}></span>}
+  <img style={{backgroundColor: getRandomHexColor()}} className={css.avatar} src={avatar} alt="User avatar" width="48" />
+    <p className={css.name}>{name}</p>
 </li>
 }
 
